@@ -1,10 +1,14 @@
-"use client";
+import Link from "next/link";
 
-import TreeMenu from "@/liquid/TreeMenu/TreeMenu";
-export default function Home() {
+export default function Page() {
   return (
     <div>
-      <TreeMenu />
+      <Link href="/dashboard/events">
+        <a>My second page</a>
+      </Link>
+      <Link href="/dashboard/submissions">
+        <a>My third page</a>
+      </Link>
     </div>
   );
 }

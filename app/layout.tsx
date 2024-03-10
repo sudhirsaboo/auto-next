@@ -1,6 +1,13 @@
+import { Suspense } from "react";
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+
 import "./globals.css";
+
+import Nav from "./app-header/nav";
+import Toast from "./app-header/toast";
+import { Toaster } from "@/components/auth/Toasts/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +23,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Suspense>
+          <Nav />
+        </Suspense>
+        {children}
+        <Toast />
+        <Suspense>
+          <Toaster />
+        </Suspense>
+      </body>
     </html>
   );
 }

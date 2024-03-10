@@ -12,6 +12,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "noImplicitAny": true,   
+
     "plugins": [
       {
         "name": "next"
@@ -19,7 +21,7 @@
     ],
     "paths": {
       "@/liquid/*": ["../liquid-next/components/libs/*"],
-      "@/liquid-layouts/*": ["../liquid-next/layout/libs/*"],
+      "@/liquid-layouts/*": ["../liquid-next/layouts/lib/*"],
       "@/*": ["./*"],
     }
   },
