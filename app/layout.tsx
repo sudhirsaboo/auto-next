@@ -7,6 +7,7 @@ import "./html.css";
 import Nav from "./app-header/nav";
 import Toast from "./app-header/toast";
 import { Toaster } from "@/components/auth/Toasts/toaster";
+import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,10 +25,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         {children}
-        {/* <Toast />
+        <Toast />
         <Suspense>
           <Toaster />
-        </Suspense> */}
+        </Suspense>
       </body>
     </html>
   );

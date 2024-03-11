@@ -12,30 +12,30 @@
     },
 
     {
-      "id": 5,
+      "id": 4,
       "title": "Manage",
       "link": "todo",
       "nodes": [
         {
-          "id": 52,
+          "id": 41,
           "title": "Events",
           "to": "/events",
           "nodes": [
             {
-              "id": 52,
+              "id": 411,
               "title": "Events",
               "to": "/dashboard/events"
             },
 
             {
-              "id": 52,
+              "id": 412,
               "title": "Submissions",
               "to": "/dashboard/submissions"
             }
           ]
         },
         {
-          "id": 52,
+          "id": 42,
           "title": "Submissions",
           "to": "/programSubmissions"
         }
@@ -43,39 +43,27 @@
     },
 
     {
-      "id": 5,
+      "id": 6,
       "title": "Admin",
       "link": "todo",
       "nodes": [
         {
-          "id": 50,
-          "title": "Categories",
-          "to": "/categories",
-          "displayCondition": false
-        },
-        {
-          "id": 51,
+          "id": 61,
           "title": "Accounts",
           "to": "/organizations"
         },
         {
-          "id": 511,
-          "title": "Accounts Chart",
-          "to": "/orgchart",
-          "displayCondition": false
-        },
-        {
-          "id": 53,
+          "id": 63,
           "title": "Users",
           "to": "/users"
         },
         {
-          "id": 53,
+          "id": 64,
           "title": "Roles",
           "to": "/roles"
         },
         {
-          "id": 54,
+          "id": 65,
           "title": "Permissions",
           "to": "/perms"
         }
@@ -83,37 +71,37 @@
     },
 
     {
-      "id": 5,
+      "id": 7,
       "title": "My Portfolio",
       "link": "todo",
       "displayCondition": true,
       "nodes": [
         {
-          "id": 511,
+          "id": 71,
           "title": "IO Chart",
           "to": "/iochart",
           "displayCondition": false
         },
         {
-          "id": 511,
+          "id": 72,
           "title": "React Toolbox",
           "to": "/rtoolbox",
           "displayCondition": true
         },
         {
-          "id": 512,
+          "id": 73,
           "title": "Editable IO Chart",
           "to": "/editiochart",
           "displayCondition": false
         },
         {
-          "id": 513,
+          "id": 74,
           "title": "Table",
           "to": "/table1",
           "displayCondition": false
         },
         {
-          "id": 514,
+          "id": 75,
           "title": "Table",
           "to": "/table2",
           "displayCondition": false
@@ -121,12 +109,12 @@
       ]
     },
     {
-      "id": 5,
+      "id": 8,
       "title": "Settings",
       "link": "todo",
       "nodes": [
         {
-          "id": 51,
+          "id": 81,
           "title": "Settings",
           "link": "ui_editor",
           "to": "/settings"

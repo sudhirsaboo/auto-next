@@ -15,5 +15,6 @@ html {
     -webkit-font-smoothing: antialiased;
     > div {
         height:100%;
+        overflow: auto;
     }
   }

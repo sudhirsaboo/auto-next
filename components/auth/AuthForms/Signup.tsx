@@ -3,8 +3,8 @@
 import Button from "@/components/auth/Button";
 import React from "react";
 import Link from "next/link";
-import { signUp } from "@/utils/auth/server";
-import { handleRequest } from "@/utils/auth/client";
+import { signUp } from "@/utils/auth/auth-helpers/server";
+import { handleRequest } from "@/utils/auth/auth-helpers/client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
