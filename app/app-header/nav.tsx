@@ -9,8 +9,6 @@ export default async function Nav() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  console.log("sudhir");
 
-  console.log(user);
   return <Navbar user={user} />;
 }

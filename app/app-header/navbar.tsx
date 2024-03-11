@@ -7,11 +7,12 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const navigation = [
   { name: "Root", href: "/" },
   { name: "Dashboard", href: "/dashboard" },
-  { name: "Playground", href: "/playground" },
+  { name: "Playground", href: "/dashboard/events" },
 ];
 
 function classNames(...classes: string[]) {
@@ -54,7 +55,7 @@ export default function Navbar({ user }: { user: any }) {
                 </div>
                 <div className="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
                   {navigation.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
                       href={item.href}
                       className={classNames(
@@ -66,7 +67,7 @@ export default function Navbar({ user }: { user: any }) {
                       aria-current={pathname === item.href ? "page" : undefined}
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>

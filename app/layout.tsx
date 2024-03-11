@@ -1,9 +1,8 @@
-import { Suspense } from "react";
-
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import "./globals.css";
+import "./html.css";
 
 import Nav from "./app-header/nav";
 import Toast from "./app-header/toast";
@@ -24,14 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Suspense>
-          <Nav />
-        </Suspense>
         {children}
-        <Toast />
+        {/* <Toast />
         <Suspense>
           <Toaster />
-        </Suspense>
+        </Suspense> */}
       </body>
     </html>
   );
