@@ -1,8 +1,8 @@
 "use client";
 
 import Button from "@/components/auth/Button";
-import { updatePassword } from "@/utils/auth/auth-helpers/server";
-import { handleRequest } from "@/utils/auth/auth-helpers/client";
+import { updatePassword } from "@/utils/auth/auth-helpers/supabase/server";
+import { handleRequest } from "@/utils/auth/auth-helpers/supabase/client";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 

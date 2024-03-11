@@ -2,8 +2,8 @@
 
 import Button from "@/components/auth/Button";
 import Link from "next/link";
-import { signInWithPassword } from "@/utils/auth/auth-helpers/server";
-import { handleRequest } from "@/utils/auth/auth-helpers/client";
+import { signInWithPassword } from "@/utils/auth/auth-helpers/supabase/server";
+import { handleRequest } from "@/utils/auth/auth-helpers/supabase/client";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 

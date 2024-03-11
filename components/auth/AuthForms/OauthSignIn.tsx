@@ -1,7 +1,7 @@
 "use client";
 
 import Button from "@/components/auth/Button";
-import { signInWithOAuth } from "@/utils/auth/auth-helpers/client";
+import { signInWithOAuth } from "@/utils/auth/auth-helpers/supabase/client";
 import { type Provider } from "@supabase/supabase-js";
 import { Github } from "lucide-react";
 import { useState } from "react";
