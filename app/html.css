@@ -18,3 +18,7 @@ html {
         overflow: auto;
     }
   }
+.p-datepicker{
+  z-index:2000 !important;
+  height:initial !important
+}

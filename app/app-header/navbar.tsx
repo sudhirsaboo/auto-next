@@ -4,8 +4,8 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { signIn, signOut } from "next-auth/react";
-import { SignOut } from "@/utils/auth/auth-helpers/supabase/server";
-import { handleRequest } from "@/utils/auth/auth-helpers/supabase/client";
+import { SignOut } from "@/utils/auth/auth-helpers/spring/server";
+import { handleRequest } from "@/utils/auth/auth-helpers/spring/client";
 
 import Image from "next/image";
 import Link from "next/link";

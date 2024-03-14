@@ -1,125 +1,130 @@
 {
-  "url": "/api/art/navigation",
-  "method": "POST",
-  "json": [
-    {
-      "id": 1,
-      "name": "dashboard",
-      "title": "Dashboard",
-      "link": "todo",
-      "icon": "fa-tachometer",
-      "nodes": []
-    },
+    "url": "/api/art/navigation",
+    "method": "POST",
+    "json": [
+        {
+            "id": 1,
+            "name": "dashboard",
+            "title": "Dashboard",
+            "link": "todo",
+            "icon": "fa-tachometer",
+            "nodes": []
+        },
 
-    {
-      "id": 4,
-      "title": "Manage",
-      "link": "todo",
-      "nodes": [
         {
-          "id": 41,
-          "title": "Events",
-          "to": "/events",
-          "nodes": [
-            {
-              "id": 411,
-              "title": "Events",
-              "to": "/dashboard/events"
-            },
+            "id": 4,
+            "title": "Manage",
+            "link": "todo",
+            "nodes": [
+                {
+                    "id": 41,
+                    "title": "Events",
+                    "to": "/events",
+                    "nodes": [
+                        {
+                            "id": 411,
+                            "title": "Events",
+                            "to": "/dashboard/events"
+                        },
 
-            {
-              "id": 412,
-              "title": "Submissions",
-              "to": "/dashboard/submissions"
-            }
-          ]
+                        {
+                            "id": 412,
+                            "title": "Programs",
+                            "to": "/dashboard/programs"
+                        },
+                        {
+                            "id": 413,
+                            "title": "submissions",
+                            "to": "/dashboard/submissions"
+                        }
+                    ]
+                },
+                {
+                    "id": 42,
+                    "title": "Submissions",
+                    "to": "/programSubmissions"
+                }
+            ]
         },
-        {
-          "id": 42,
-          "title": "Submissions",
-          "to": "/programSubmissions"
-        }
-      ]
-    },
 
-    {
-      "id": 6,
-      "title": "Admin",
-      "link": "todo",
-      "nodes": [
         {
-          "id": 61,
-          "title": "Accounts",
-          "to": "/organizations"
+            "id": 6,
+            "title": "Admin",
+            "link": "todo",
+            "nodes": [
+                {
+                    "id": 61,
+                    "title": "Accounts",
+                    "to": "/organizations"
+                },
+                {
+                    "id": 63,
+                    "title": "Users",
+                    "to": "/users"
+                },
+                {
+                    "id": 64,
+                    "title": "Roles",
+                    "to": "/roles"
+                },
+                {
+                    "id": 65,
+                    "title": "Permissions",
+                    "to": "/perms"
+                }
+            ]
         },
-        {
-          "id": 63,
-          "title": "Users",
-          "to": "/users"
-        },
-        {
-          "id": 64,
-          "title": "Roles",
-          "to": "/roles"
-        },
-        {
-          "id": 65,
-          "title": "Permissions",
-          "to": "/perms"
-        }
-      ]
-    },
 
-    {
-      "id": 7,
-      "title": "My Portfolio",
-      "link": "todo",
-      "displayCondition": true,
-      "nodes": [
         {
-          "id": 71,
-          "title": "IO Chart",
-          "to": "/iochart",
-          "displayCondition": false
+            "id": 7,
+            "title": "My Portfolio",
+            "link": "todo",
+            "displayCondition": true,
+            "nodes": [
+                {
+                    "id": 71,
+                    "title": "IO Chart",
+                    "to": "/iochart",
+                    "displayCondition": false
+                },
+                {
+                    "id": 72,
+                    "title": "React Toolbox",
+                    "to": "/rtoolbox",
+                    "displayCondition": true
+                },
+                {
+                    "id": 73,
+                    "title": "Editable IO Chart",
+                    "to": "/editiochart",
+                    "displayCondition": false
+                },
+                {
+                    "id": 74,
+                    "title": "Table",
+                    "to": "/table1",
+                    "displayCondition": false
+                },
+                {
+                    "id": 75,
+                    "title": "Table",
+                    "to": "/table2",
+                    "displayCondition": false
+                }
+            ]
         },
         {
-          "id": 72,
-          "title": "React Toolbox",
-          "to": "/rtoolbox",
-          "displayCondition": true
-        },
-        {
-          "id": 73,
-          "title": "Editable IO Chart",
-          "to": "/editiochart",
-          "displayCondition": false
-        },
-        {
-          "id": 74,
-          "title": "Table",
-          "to": "/table1",
-          "displayCondition": false
-        },
-        {
-          "id": 75,
-          "title": "Table",
-          "to": "/table2",
-          "displayCondition": false
+            "id": 8,
+            "title": "Settings",
+            "link": "todo",
+            "nodes": [
+                {
+                    "id": 81,
+                    "title": "Settings",
+                    "link": "ui_editor",
+                    "to": "/settings"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": 8,
-      "title": "Settings",
-      "link": "todo",
-      "nodes": [
-        {
-          "id": 81,
-          "title": "Settings",
-          "link": "ui_editor",
-          "to": "/settings"
-        }
-      ]
-    }
-  ]
+    ]
 }

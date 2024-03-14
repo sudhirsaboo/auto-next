@@ -12,7 +12,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "noImplicitAny": true,   
+    "noImplicitAny": false,   
 
     "plugins": [
       {
@@ -22,7 +22,13 @@
     "paths": {
       "@/liquid/*": ["../liquid-next/components/libs/*"],
       "@/liquid-layouts/*": ["../liquid-next/layouts/lib/*"],
-      "@/*": ["./*"],
+      "@/liquid-forms/*": ["../liquid-next/form/libs/*"],
+      "@/liquid-table/*": ["../liquid-next/table/libs/*"],
+      "@/liquid-utils/*": ["../liquid-next/utils/libs/*"],
+      "@/liquid-store/*": ["../liquid-next/store/libs/*"],
+      "@/liquid-styles/*": ["../liquid-next/styles/*"],
+
+       "@/*": ["./*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

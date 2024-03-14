@@ -1,14 +1,10 @@
+import { getUser } from "@/utils/auth/auth-helpers/spring/server";
 import Navbar from "./navbar";
-// import { auth } from "./auth";
-import { createClient } from "@/utils/auth/supabase/server";
 
 export default async function Nav() {
-  //  const session = await auth();
-  const supabase = createClient();
+  const user = await getUser();
+  console.log("sudhir");
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
+  console.log(user);
   return <Navbar user={user} />;
 }

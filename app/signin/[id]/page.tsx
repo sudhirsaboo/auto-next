@@ -9,13 +9,13 @@ import {
   getRedirectMethod,
 } from "@/utils/auth/settings";
 import Card from "@/components/auth/Card";
-import PasswordSignIn from "@/components/auth/AuthForms/PasswordSignIn";
-import EmailSignIn from "@/components/auth/AuthForms/EmailSignIn";
-import Separator from "@/components/auth/AuthForms/Separator";
-import OauthSignIn from "@/components/auth/AuthForms/OauthSignIn";
-import ForgotPassword from "@/components/auth/AuthForms/ForgotPassword";
-import UpdatePassword from "@/components/auth/AuthForms/UpdatePassword";
-import SignUp from "@/components/auth/AuthForms/Signup";
+import PasswordSignIn from "@/components/auth/spring/AuthForms/PasswordSignIn";
+import EmailSignIn from "@/components/auth/spring/AuthForms/EmailSignIn";
+import Separator from "@/components/auth/spring/AuthForms/Separator";
+import OauthSignIn from "@/components/auth/spring/AuthForms/OauthSignIn";
+import ForgotPassword from "@/components/auth/spring/AuthForms/ForgotPassword";
+import UpdatePassword from "@/components/auth/spring/AuthForms/UpdatePassword";
+import SignUp from "@/components/auth/spring/AuthForms/Signup";
 
 export default async function SignIn({
   params,
