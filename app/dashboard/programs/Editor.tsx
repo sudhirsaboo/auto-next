@@ -25,25 +25,40 @@ import {
 import FormatUtils from "@/liquid-utils/FormatUtils";
 
 //import UploadStore from "../../../actions/upload";
-//import OrgStore from "../../../actions/Organizations";
-import ProgramStore from "@/store/Programs";
-import { Check } from "lucide-react";
+import ProgramStore from "@/liquid-domain/Programs";
+import OrgStore from "@/liquid-domain/Organizations";
+
+import moment from "moment";
 
 class CreateProgram extends React.Component<any, any> {
     constructor(props) {
         super(props);
     }
-
+    state = {
+        entities: {
+            organizations: null,
+        },
+        organizations: null,
+    };
     static defaultProps = {
         post: ProgramStore.create(),
     };
 
-    componentDidMount() {
+    async componentDidMount() {
         const { dispatch } = this.props;
-        // dispatch(OrgStore.load());
+        const type = await OrgStore.loadPlain();
+        const entities = { ...this.state.entities, ...type.entities };
+
+        // orgazniations ids
+        let organizations = {};
+        organizations[type.playlist] = {
+            items: type.entityIds,
+            page: type.page,
+        };
+        this.setState({ entities, organizations, playlist: type.playlist });
     }
 
-    onSubmit = () => {
+    onSubmit = async () => {
         const { dispatch, store, playlist, post } = this.props;
 
         const data = this.refs.form["collect"](post.id).form;
@@ -51,10 +66,16 @@ class CreateProgram extends React.Component<any, any> {
         Object.assign(post, data);
         post.setCover(post.cover);
 
+        data.start = TimeEntryField.mergeDateAndTime(
+            data.start,
+            data.startTime
+        );
+        alert(TimeEntryField.announceDateTime(data.start));
+        //alert(data.technical);
+        // alert(data.tags);
+
         const context = { playlist };
-        dispatch(store.insert(context, post))
-            .then(() => {})
-            .catch(() => {});
+        await store.insert(context, post);
 
         this.props.dismiss();
     };
@@ -76,9 +97,10 @@ class CreateProgram extends React.Component<any, any> {
     };
 
     render() {
-        const { store, entities, organizations, post } = this.props;
+        const { store, post } = this.props;
+        const { entities, organizations } = this.state;
 
-        const cover = post.getCoverO(this.props);
+        //const cover = post.getCoverO(this.props);
 
         const label = FormatUtils.title(store.getName(), null, post);
 
@@ -93,6 +115,7 @@ class CreateProgram extends React.Component<any, any> {
                         onSelect={this.onSelectCover}
                         onRemove={this.onRemove}
                     ></CoverSelect> */}
+                    {/* <pre>{JSON.stringify(post, null, 2)}</pre>{" "} */}
                     <Form ref="form" model={post}>
                         <FieldGroup label="Identify">
                             <EntryField
@@ -109,7 +132,7 @@ class CreateProgram extends React.Component<any, any> {
                             ></TextArea>
                         </FieldGroup>
                         <FieldGroup>
-                            {/*  <SelectField
+                            <SelectField
                                 wholeObject
                                 label="Parent Account"
                                 select="organization"
@@ -118,17 +141,19 @@ class CreateProgram extends React.Component<any, any> {
                                 optionsId={organizations}
                                 playlist={"organizations"}
                                 required
-                            ></SelectField> */}
-                            <DateEntryField
-                                name="start"
-                                label="Start Date"
-                            ></DateEntryField>
+                            ></SelectField>
+                            {
+                                <DateEntryField
+                                    name="start"
+                                    label="Start Date"
+                                ></DateEntryField>
+                            }
                             <TimeEntryField
                                 name="startTime"
                                 label="Start Time"
                                 required={false}
                             ></TimeEntryField>
-                            <DateEntryField
+                            {/*  <DateEntryField
                                 name="end"
                                 label="Deadline"
                             ></DateEntryField>
@@ -136,7 +161,7 @@ class CreateProgram extends React.Component<any, any> {
                                 name="fee"
                                 label="Application Fee"
                                 type="Currency"
-                            ></EntryField>
+                            ></EntryField> */}
                             <TextArea
                                 name="description"
                                 label="Description"

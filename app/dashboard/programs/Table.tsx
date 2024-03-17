@@ -15,6 +15,7 @@ import {
     Buttons,
     Button,
     DisplayField,
+    TimeEntryField,
 } from "@/liquid-forms/index";
 import Page from "@/liquid-layouts/theater/Page";
 
@@ -22,17 +23,26 @@ import Editor from "./Editor";
 //import { DeleteIcon, EditIconWOA } from "@/liquid-utils/icon/index";
 import { EditIcon } from "@/liquid-utils/icon/index";
 
-import Store from "@/store/Programs";
+import Store from "@/liquid-domain/Programs";
 
 import DataTable from "@/liquid-table/DataTable";
 import { Dialog } from "primereact/dialog";
+import moment from "moment";
 
 class ProgramTable extends React.Component<any, any> {
     static defaultProps = {
         store: Store,
     };
-    showEditor = () => {
-        const ui = { ...this.state.ui, editor: true };
+    showEditor = (row) => {
+        row.description = "HARD";
+        row.statement = "HARD";
+        row.technical = 7;
+        row.super = true;
+        row.fee = 100;
+        TimeEntryField.fillDateAndTime("start", row);
+        row.tags = ["test1", "test2"];
+
+        const ui = { ...this.state.ui, editor: true, row: row };
 
         this.setState({ ui });
     };
@@ -48,7 +58,7 @@ class ProgramTable extends React.Component<any, any> {
         playlist: null,
         filter: null,
         programs: null,
-        ui: { editor: false },
+        ui: { editor: false, row: {} },
     };
     async componentDidMount() {
         const { dispatch, store, playlist, filter } = this.props;
@@ -71,7 +81,9 @@ class ProgramTable extends React.Component<any, any> {
                 return { post: row, user: row.user };
             },
             formatterEasy: (row) => {
-                return <EditIcon onClick={this.showEditor}></EditIcon>;
+                return (
+                    <EditIcon onClick={() => this.showEditor(row)}></EditIcon>
+                );
             },
         },
         {
@@ -238,7 +250,11 @@ class ProgramTable extends React.Component<any, any> {
                     visible={this.state.ui.editor}
                     onHide={this.closeEditor}
                 >
-                    <Editor {...this.props}></Editor>
+                    <Editor
+                        {...this.props}
+                        dismiss={this.closeEditor}
+                        post={this.state.ui.row}
+                    ></Editor>
                 </Dialog>
             </Page>
         );
