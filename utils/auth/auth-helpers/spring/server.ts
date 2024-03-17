@@ -33,7 +33,8 @@ export async function SignOut(formData: FormData) {
 
   cookies().delete("accessToken");
   cookies().delete("user");
-console.log("deleted cookies");
+  cookies().delete("JSESSIONID");
+
   try {
     await fetch(APIConstants.SIGNOUT_URL, {
       method: "get",

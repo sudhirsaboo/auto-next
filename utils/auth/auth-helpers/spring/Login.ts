@@ -8,6 +8,7 @@ import {
     getChangePassUrl,
     getRecoverUrl
 } from "./urlUtils";
+import { cookies } from 'next/headers';
 
  
  
@@ -69,6 +70,9 @@ console.log(data2);
 }
 export async function setUser(accessToken: string){
     const headers = new Headers();
+    if (accessToken) {
+        cookies().set("accessToken", accessToken);
+    }
     headers.append(
         "Accept",
         "application/json, text/javascript, */*; q=0.01"

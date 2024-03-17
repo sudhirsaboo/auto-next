@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-//import "./html.css";
+import "./prime.scss";
 
 import Nav from "./app-header/nav";
 import Toast from "./app-header/toast";

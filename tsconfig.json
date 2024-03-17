@@ -26,11 +26,12 @@
       "@/liquid-table/*": ["../liquid-next/table/libs/*"],
       "@/liquid-utils/*": ["../liquid-next/utils/libs/*"],
       "@/liquid-store/*": ["../liquid-next/store/libs/*"],
+      "@/liquid-domain/*": ["../liquid-next/domain/*"],
       "@/liquid-styles/*": ["../liquid-next/styles/*"],
 
        "@/*": ["./*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".bablerc"],
   "exclude": ["node_modules"]
 }
