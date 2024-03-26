@@ -32,7 +32,18 @@ const nextConfig = {
                 set() {},
             });
         }
-
+        //config.resolve.fallback = { ...config.resolve.fallback, fs: false };
+        if (!options.isServer) {
+            config.resolve = {
+                ...config.resolve,
+                fallback: {
+                    fs: false,
+                    //request: false,
+                    //path: false,
+                    //debug: false,
+                },
+            };
+        }
         return config;
     },
 };

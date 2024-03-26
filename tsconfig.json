@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -12,26 +16,53 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "noImplicitAny": false,   
-
+    "noImplicitAny": false,
     "plugins": [
       {
         "name": "next"
       }
     ],
     "paths": {
-      "@/liquid/*": ["../liquid-next/components/libs/*"],
-      "@/liquid-layouts/*": ["../liquid-next/layouts/lib/*"],
-      "@/liquid-forms/*": ["../liquid-next/form/libs/*"],
-      "@/liquid-table/*": ["../liquid-next/table/libs/*"],
-      "@/liquid-utils/*": ["../liquid-next/utils/libs/*"],
-      "@/liquid-store/*": ["../liquid-next/store/libs/*"],
-      "@/liquid-domain/*": ["../liquid-next/domain/*"],
-      "@/liquid-styles/*": ["../liquid-next/styles/*"],
-
-       "@/*": ["./*"],
+      "@/liquid/*": [
+        "../liquid-next/components/libs/*"
+      ],
+      "@/liquid-layouts/*": [
+        "../liquid-next/layouts/lib/*"
+      ],
+      "@/liquid-forms/*": [
+        "./node_modules/@liquid101/form/*"
+      ],
+      "@/liquid-table/*": [
+        "../liquid-next/packages/table/libs/*"
+      ],
+      "@/liquid-utils/*": [
+        "../liquid-next/utils/libs/*"
+      ],
+      "@liquid101/util/*": [
+        "../liquid-next/utils/libs/*"
+      ],
+      "@/liquid-store/*": [
+        "../liquid-next/store/libs/*"
+      ],
+      "@/liquid-domain/*": [
+        "../liquid-next/domain/*"
+      ],
+      "@/liquid-styles/*": [
+        "../liquid-next/styles/*"
+      ],
+      "@/*": [
+        "./*"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".bablerc"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".bablerc",
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

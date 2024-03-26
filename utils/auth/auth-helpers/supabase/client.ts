@@ -1,6 +1,6 @@
 'use client';
 
-import { createClient } from '@/utils/auth/supabase/client';
+import { createClient } from '@/utils/auth/spring/client';
 import { type Provider } from '@supabase/supabase-js';
 import { getURL } from '@/utils/auth/helpers';
 import { redirectToPath } from './server';
@@ -32,10 +32,10 @@ export async function signInWithOAuth(e: React.FormEvent<HTMLFormElement>) {
   const formData = new FormData(e.currentTarget);
   const provider = String(formData.get('provider')).trim() as Provider;
 
-  // Create client-side supabase client and call signInWithOAuth
-  const supabase = createClient();
+  // Create client-side  client and call signInWithOAuth
+  const spring = createClient();
   const redirectURL = getURL('/auth/callback');
-  await supabase.auth.signInWithOAuth({
+  await spring.auth.signInWithOAuth({
     provider: provider,
     options: {
       redirectTo: redirectURL

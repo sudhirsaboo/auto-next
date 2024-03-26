@@ -20,14 +20,12 @@ import {
 import Page from "@/liquid-layouts/theater/Page";
 
 import Editor from "./Editor";
-//import { DeleteIcon, EditIconWOA } from "@/liquid-utils/icon/index";
-import { EditIcon } from "@/liquid-utils/icon/index";
+import { EditIcon } from "@liquid101/util/icon/index";
 
 import Store from "@/liquid-domain/Programs";
 
 import DataTable from "@/liquid-table/DataTable";
 import { Dialog } from "primereact/dialog";
-import moment from "moment";
 
 class ProgramTable extends React.Component<any, any> {
     static defaultProps = {
@@ -55,7 +53,7 @@ class ProgramTable extends React.Component<any, any> {
         entities: {
             programs: null,
         },
-        playlist: null,
+        playlist: "",
         filter: null,
         programs: null,
         ui: { editor: false, row: {} },
@@ -210,7 +208,7 @@ class ProgramTable extends React.Component<any, any> {
 
         if (!programs) return null;
 
-        const list = programs[playlist];
+        const list: any[] = programs[playlist];
         if (!list || !list.items) return null;
 
         const data2 = list.items.map((id) => {

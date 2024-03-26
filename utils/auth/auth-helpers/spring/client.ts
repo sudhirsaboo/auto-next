@@ -3,6 +3,7 @@
 import { getURL } from '@/utils/auth/helpers';
 import { redirectToPath } from './server';
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
+import { createClient } from '../../spring/client';
 
 export async function handleRequest(
   e: React.FormEvent<HTMLFormElement>,
@@ -28,7 +29,7 @@ export async function signInWithOAuth(e: React.FormEvent<HTMLFormElement>) {
   // Prevent default form submission refresh
   e.preventDefault();
   const formData = new FormData(e.currentTarget);
-  const provider = String(formData.get('provider')).trim() as Provider;
+  const provider = String(formData.get('provider')).trim() as any;
 
   // Create client-side supabase client and call signInWithOAuth
   const supabase = createClient();

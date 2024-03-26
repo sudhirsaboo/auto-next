@@ -1,3 +1,4 @@
+//@ts-nocheck
 class base64 {
     static PADCHAR = "=";
     static ALPHA =

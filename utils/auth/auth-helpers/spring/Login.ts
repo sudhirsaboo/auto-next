@@ -43,7 +43,7 @@ export async function login(user) {
         body.append(key, indata[key]);
     }
     let data = {accessToken:"" };
-    let error = null;
+    let error;
     try      {
        const response = await  fetch(oauth_url, {
             method: "POST",

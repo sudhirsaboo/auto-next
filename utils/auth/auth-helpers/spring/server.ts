@@ -6,6 +6,7 @@ import { getURL, getErrorRedirect, getStatusRedirect } from '@/utils/auth/helper
 import { getAuthTypes } from '@/utils/auth/settings';
 import { login } from "@/utils/auth/auth-helpers/spring/Login";
 import { APIConstants } from './Config';
+import { createClient } from '../../spring/server';
 
  export async function getUser(){
   const str = cookies().get('user');
@@ -66,7 +67,7 @@ export async function signInWithEmail(formData: FormData) {
     );
   }
 
-  const supabase = createClient();
+  const spring = createClient();
   let options = {
     emailRedirectTo: callbackURL,
     shouldCreateUser: true
@@ -75,7 +76,7 @@ export async function signInWithEmail(formData: FormData) {
   // If allowPassword is false, do not create a new user
   const { allowPassword } = getAuthTypes();
   if (allowPassword) options.shouldCreateUser = false;
-  const { data, error } = await supabase.auth.signInWithOtp({
+  const { data, error } = await spring.auth.signInWithOtp({
     email,
     options: options
   });
@@ -120,9 +121,9 @@ export async function requestPasswordUpdate(formData: FormData) {
     );
   }
 
-  const supabase = createClient();
+  const spring = createClient();
 
-  const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+  const { data, error } = await spring.auth.resetPasswordForEmail(email, {
     redirectTo: callbackURL
   });
 
@@ -198,8 +199,8 @@ export async function signUp(formData: FormData) {
     );
   }
 
-  const supabase = createClient();
-  const { error, data } = await supabase.auth.signUp({
+  const spring = createClient();
+  const { error, data } = await spring.auth.signUp({
     email,
     password,
     options: {
@@ -256,8 +257,8 @@ export async function updatePassword(formData: FormData) {
     );
   }
 
-  const supabase = createClient();
-  const { error, data } = await supabase.auth.updateUser({
+  const spring = createClient();
+  const { error, data } = await spring.auth.updateUser({
     password
   });
 
@@ -297,13 +298,13 @@ export async function updateEmail(formData: FormData) {
     );
   }
 
-  const supabase = createClient();
+  const spring = createClient();
 
   const callbackUrl = getURL(
     getStatusRedirect('/account', 'Success!', `Your email has been updated.`)
   );
 
-  const { error } = await supabase.auth.updateUser(
+  const { error } = await spring.auth.updateUser(
     { email: newEmail },
     {
       emailRedirectTo: callbackUrl
@@ -329,8 +330,8 @@ export async function updateName(formData: FormData) {
   // Get form data
   const fullName = String(formData.get('fullName')).trim();
 
-  const supabase = createClient();
-  const { error, data } = await supabase.auth.updateUser({
+  const spring = createClient();
+  const { error, data } = await spring.auth.updateUser({
     data: { full_name: fullName }
   });
 
