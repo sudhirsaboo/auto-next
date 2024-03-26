@@ -1,5 +1,3 @@
-'use client';
-
 import { getURL } from '@/utils/auth/helpers';
 import { redirectToPath } from './server';
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
@@ -18,9 +16,15 @@ export async function handleRequest(
 
   if (router) {
     // If client-side router is provided, use it to redirect
+    console.log("client side redirect")
+    console.log(redirectUrl)
+
     return router.push(redirectUrl);
   } else {
     // Otherwise, redirect server-side
+    console.log("server side redirect")
+    console.log(redirectUrl);
+
     return await redirectToPath(redirectUrl);
   }
 }
@@ -31,10 +35,10 @@ export async function signInWithOAuth(e: React.FormEvent<HTMLFormElement>) {
   const formData = new FormData(e.currentTarget);
   const provider = String(formData.get('provider')).trim() as any;
 
-  // Create client-side supabase client and call signInWithOAuth
-  const supabase = createClient();
+  // Create client-side spring client and call signInWithOAuth
+  const spring = createClient();
   const redirectURL = getURL('/auth/callback');
-  await supabase.auth.signInWithOAuth({
+  await spring.auth.signInWithOAuth({
     provider: provider,
     options: {
       redirectTo: redirectURL

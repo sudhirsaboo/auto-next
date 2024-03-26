@@ -204,11 +204,11 @@ class ProgramTable extends React.Component<any, any> {
     render() {
         const { playlist, entities, programs } = this.state;
 
-        const data = entities?.programs;
+        const data: any = entities?.programs;
 
         if (!programs) return null;
 
-        const list: any[] = programs[playlist];
+        const list: any[string] = programs[playlist];
         if (!list || !list.items) return null;
 
         const data2 = list.items.map((id) => {

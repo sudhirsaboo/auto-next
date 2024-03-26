@@ -1,10 +1,10 @@
-import { createBrowserClient } from '@supabase/ssr';
-import { Database } from '@/types_db';
 
-// Define a function to create a Supabase client for client-side operations
-export const createClient = () =>
-  createBrowserClient<Database>(
-    // Pass Supabase URL and anonymous key from the environment to the client
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
+// Define a function to create a Supabase client for server-side operations
+// The function takes a cookie store created with next/headers cookies as an argument
+export const createClient = () => {
+  return {
+    auth :{
+      signInWithOAuth:  async(config) =>{ return { data: {user:{}}, error:{message:""}}},
+   }
+  }
+};

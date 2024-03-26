@@ -5,7 +5,6 @@ export const HOME_URL = "f4323c6f7c0cd73d2d786a2b1cdae80c";
 
 
 const API_ROOT_URL = ENVConstants.API_ROOT_URL + "/";
-console.log(API_ROOT_URL)
 
 export const APIConstants = {
     API_ROOT_URL,
@@ -20,5 +19,5 @@ export const APIConstants = {
 
     UPLOAD_URL: API_ROOT_URL + "api/upload",
     DATA_URL: API_ROOT_URL + "api/art/data",
-};console.log(APIConstants)
+}
 
