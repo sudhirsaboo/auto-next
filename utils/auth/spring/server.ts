@@ -1,6 +1,8 @@
 
 // Define a function to create a Supabase client for server-side operations
 // The function takes a cookie store created with next/headers cookies as an argument
+import { getUser } from "@/utils/auth/auth-helpers/spring/server";
+
 export const createClient = () => {
   return {
     auth :{
@@ -10,7 +12,7 @@ export const createClient = () => {
       signInWithOtp:  async(user, options?) =>{ return { data: {}, error:{message:""}}},
       signOut:  async() =>{ return { data: {}, error:{message:""}}},
       signInWithPassword:  async(config) =>{ return { data: { user:{}}, error:{message:""}}},
-
+      getUser:async () =>{ return { data: { user:await getUser()}, error:{message:""}}},
     }
   }
 };

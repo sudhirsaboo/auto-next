@@ -16,7 +16,6 @@ import OauthSignIn from "@/components/auth/spring/AuthForms/OauthSignIn";
 import ForgotPassword from "@/components/auth/spring/AuthForms/ForgotPassword";
 import UpdatePassword from "@/components/auth/spring/AuthForms/UpdatePassword";
 import SignUp from "@/components/auth/spring/AuthForms/Signup";
-import { getUser } from "@/utils/auth/auth-helpers/spring/server";
 
 export default async function SignIn({
     params,
@@ -43,13 +42,10 @@ export default async function SignIn({
     }
 
     // Check if the user is already logged in and redirect to the account page if so
-    //const spring = createClient();
-    /*const {
+    const spring = createClient();
+    const {
         data: { user },
-    } = await spring.auth.getUser();*/
-    const user = await getUser();
-    console.log(user);
-    console.log("sudhirnow");
+    } = await spring.auth.getUser();
 
     if (user && viewProp !== "update_password") {
         console.log("redirecting to /dashboard");

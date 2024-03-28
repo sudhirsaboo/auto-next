@@ -21,9 +21,9 @@ import {
     CheckBox,
     Slider,
     TagsField,
-} from "@/liquid-forms/index";
+} from "@liquid101/form/index";
 
-import FormatUtils from "@/liquid-utils/FormatUtils";
+import FormatUtils from "@liquid101/util/FormatUtils";
 
 //import UploadStore from "../../../actions/upload";
 import ProgramStore from "@/liquid-domain/Programs";

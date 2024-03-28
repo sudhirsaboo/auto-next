@@ -29,14 +29,8 @@
       "@/liquid-layouts/*": [
         "../liquid-next/layouts/lib/*"
       ],
-      "@/liquid-forms/*": [
-        "./node_modules/@liquid101/form/*"
-      ],
       "@/liquid-table/*": [
         "../liquid-next/packages/table/libs/*"
-      ],
-      "@/liquid-utils/*": [
-        "../liquid-next/utils/libs/*"
       ],
       "@liquid101/util/*": [
         "../liquid-next/utils/libs/*"
@@ -60,7 +54,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".bablerc",
+    ".bablerc", "tailwind.config.js",
   ],
   "exclude": [
     "node_modules"

@@ -16,7 +16,7 @@ import {
     Button,
     DisplayField,
     TimeEntryField,
-} from "@/liquid-forms/index";
+} from "@liquid101/form/index";
 import Page from "@/liquid-layouts/theater/Page";
 
 import Editor from "./Editor";
@@ -221,7 +221,7 @@ class ProgramTable extends React.Component<any, any> {
         console.log(data2);
 
         return (
-            <Page>
+            <>
                 <Card stretch="true">
                     <CardHeader label={"Manage Programs"}></CardHeader>
                     <CardContent id="user_table">
@@ -254,7 +254,7 @@ class ProgramTable extends React.Component<any, any> {
                         post={this.state.ui.row}
                     ></Editor>
                 </Dialog>
-            </Page>
+            </>
         );
     }
 }
