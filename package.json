@@ -28,6 +28,7 @@
         "dotenv": "^16.4.5",
         "jose": "^5.2.4",
         "js-cookie": "^3.0.5",
+        "jsonwebtoken": "^9.0.2",
         "lucide-react": "0.330.0",
         "mysql2": "^3.9.4",
         "next": "14.1.3",
@@ -38,6 +39,7 @@
         "react-merge-refs": "^2.1.1",
         "sass": "^1.71.1",
         "sequelize": "^6.37.2",
+        "sequelize-auto": "^0.8.8",
         "tailwind-merge": "^2.2.1"
     },
     "devDependencies": {
