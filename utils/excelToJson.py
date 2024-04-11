@@ -1,6 +1,7 @@
 from openpyxl import load_workbook
 from json import dumps
 from json import dump
+import sys
 
 def to_camel_case(text):
     s = text.replace("-", " ").replace("_", " ")
@@ -10,7 +11,7 @@ def to_camel_case(text):
     return s[0] + ''.join(i.capitalize() for i in s[1:])
 
 # Load Excel workbook
-wb = load_workbook("Saboo Suzuki Due Mar24.xlsx", data_only=True)
+wb = load_workbook(sys.argv[1] + '.xlsx', data_only=True)
  
 # Choose a specific sheet
 sheet = wb["calculator"]
@@ -50,6 +51,6 @@ json_data = dumps(lst)
 
 #with open('data.json', 'w') as f:
 #  dump(json_data, f, ensure_ascii=False)
-with open('data.json', 'w') as out_file:
+with open(sys.argv[1]+'.json', 'w') as out_file:
     out_file.write(json_data)
 
